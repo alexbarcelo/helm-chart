@@ -193,7 +193,7 @@ vikunja:
     config:
       enabled: true
       data:
-        config.yml:
+        config.yml: |
           service:
             enableregistration: false
 ```
@@ -268,7 +268,7 @@ vikunja:
         secretKeyRef:
           name: vikunja-env
           key: VIKUNJA_DATABASE_PASSWORD
-    VIKUNJA_DATABASE_USERNAME: "db-user"
+    VIKUNJA_DATABASE_USER: "db-user"
 ```
 
 If the keys within the secret are the names of environment variables,
@@ -280,7 +280,7 @@ vikunja:
     - secretRef:
       name: vikunja-secret-env
   env:
-    VIKUNJA_DATABASE_USERNAME: "db-user"
+    VIKUNJA_DATABASE_USER: "db-user"
 ```
 
 This will add all keys within the Kubernetes secret named `vikunja-secret-env` as environment variables to the `vikunja` pod. Additionally, if you did not have the key `VIKUNJA_DATABASE_USERNAME` in the `vikunja-secret-env` secret, you could still define it as an environment variable seen above.
